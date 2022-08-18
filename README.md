@@ -102,3 +102,4 @@ The API documentation for our application is neatly documented using Swagger UI 
 - **Deployment**: <img src="https://img.shields.io/badge/docker%20-%230db7ed.svg?&style=for-the-badge&logo=docker&logoColor=white"/> 
 
 Made with ❤️️ as part of Data Foundation Systems course, Spring 2022, IIIT Hyderabad.
+
