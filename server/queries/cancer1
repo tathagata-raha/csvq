@@ -1,0 +1,113 @@
+select * from cancer1
+select * from cancer1
+select * from cancer1 where death_count > 1
+select * from cancer1
+select * from cancer1
+select * from cancer1 where death_count > 1
+select count(death_count) from cancer1 where age  < 40 and cancer_site = "stomach" 
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1 where death_count > 1
+select * from cancer1 where death_count > 1
+select * from cancer1
+select * from cancer1
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 1
+select * from cancer1
+select * from cancer1
+select count(death_count) from cancer1 where age  < 40 and cancer_site = "stomach" 
+select count(death_count) from cancer1 where age  < 40 and cancer_site = "stomach" 
+select * from cancer1
+select * from cancer1
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 1
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 1
+select * from cancer1 where death_count > 1
+select * from cancer1 where death_count > 1
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1
+select * from cancer1 where death_count > 5
+select count(death_count) from cancer1 where age  < 40 and cancer_site = "stomach" 
+select * from cancer1 where death_count > 1
+select * from cancer1 where death_count > 1
+select * from cancer1 where death_count > 1
+select * from cancer1 where death_count > 1
+select * from cancer1
+select * from cancer1
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1
+select * from cancer1 where death_count > 1
+select * from cancer1 where death_count > 1
+select * from cancer1
+select * from cancer1
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1
+select * from cancer1 where death_count > 5
+select * from cancer1
+select count(death_count) from cancer1 where age  < 40 and cancer_site = "stomach" 
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 1
+select * from cancer1 where death_count > 1
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 1
+select * from cancer1 where death_count > 1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1
+select * from cancer1 where gender="female"
+select * from cancer1 where death_count > 5
+select * from cancer1 where death_count > 5
+select * from cancer1

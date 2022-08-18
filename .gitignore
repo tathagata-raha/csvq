@@ -1,0 +1,6 @@
+server/__pycache__
+server/DFS_proj
+server/swagger-ui-master
+now-ui-dashboard-react-main/node_modules
+server/*.csv
+node_modules/

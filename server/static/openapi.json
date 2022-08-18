@@ -1,0 +1,575 @@
+{
+  "openapi": "3.0.0",
+
+  "info": {
+    "version": "1.0.0",
+    "title": "End-User Search Queries(CSV)",
+    "description": "API documentation for End-User Search Queries"
+  },
+
+  "paths": {
+
+    "/list_domains": {
+      "post": {
+        "tags": [
+          "List Domain names"
+        ],
+        "description": "List all domains in the current database",
+        "requestBody":{
+        
+          "description": "Searches for domains in the database",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "list",
+                  "example": "domain: db"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "List of all domain names",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "JSON",
+                  "example": "{folders: [{\"value\": domain_name,\"name\": domain_name}] }"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/list_csv": {
+      "post": {
+        "tags": [
+          "List CSV"
+        ],
+        "description": "List all CSV files in the selected directory (database)",
+        "requestBody":{
+        
+          "description": "Enter folder name to look for CSV files in",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "string",
+                  "example": "folder: db/medical"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "List of all csv files",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "JSON",
+                  "example": "{files: [{\"value\": csv_file_name,\"name\": csv_file_name}] }"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/sql_query": {
+      "post": {
+        "tags": [
+          "SQL Query"
+        ],
+        "description": "Accepts json request of form: {\"query\":,\"files\":}",
+        "requestBody":{
+        
+          "description": "JSON contains the query, files, query_index, domain_name and query_type",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "JSON",
+                  "example": "{\"query\":,\"files\":}"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preview of queried output in a table format (json)",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "JSON",
+                  "example": "{\"thead\":columns,\"tbodys\":rows}"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/clear": {
+      "post": {
+        "tags": [
+          "Clear csv"
+        ],
+        "description": "Accepts the list of domains",
+        "requestBody":{
+        
+          "description": "List all the csv files within the domains and remove the csv files within the given domain names",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "list",
+                  "example": "domain: db"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Remove the csv files from the db",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "null",
+                  "example": "{}"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/datatype": {
+      "post": {
+        "tags": [
+          "List datatypes and column names for selected table"
+        ],
+        "description": "Returns a JSON response of column names and datatypes for the selected table",
+        "requestBody":{
+        
+          "description": "Enter table name to view column name and datatypes",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "string",
+                  "example": "file: ipl_data"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JSON of column names and datatypes",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "JSON",
+                  "example": "{{\"thead\":['Column', 'Data type'],\"tbodys\":rows}}"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/sugggestions": {
+      "post": {
+        "tags": [
+          "Suggest query"
+        ],
+        "description": "Returns the most common (top 5) queries from the query log",
+        "requestBody":{
+        
+          "description": "Accept the list of domain names",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "list",
+                  "example": "domain: db"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "List of all domains",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "list",
+                  "example": "{\"sug\":[('query', 'frequency'), ... , ('query', 'frequency')]}"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/datatype_col": {
+      "post": {
+        "tags": [
+          "Column dtypes"
+        ],
+        "description": "Returns the column dtypes for the given column",
+        "requestBody":{
+        
+          "description": "Searches for domains in the database",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "JSON",
+                  "example": "{'file':, 'domain':, 'col':}"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "List of datatypes of column",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "list",
+                  "example": "[dtypes]"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/preview": {
+      "post": {
+        "tags": [
+          "Return preview of selected tables"
+        ],
+        "description": "Returns first 5 rows of selected table in the database",
+        "requestBody":{
+        
+          "description": "Enter table name to preview",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "string",
+                  "example": "file: ipl_data"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JSON of dataset head()",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "JSON",
+                  "example": "{json output}"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/filter": {
+      "post": {
+        "tags": [
+          "Return filtered rows"
+        ],
+        "description": "Returns the filtered rows as json object",
+        "requestBody":{
+        
+          "description": "Accept the query, csv_file, domain and query_index as input",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "JSON",
+                  "example": "{'domain':, 'file':, 'cql': , 'q_index': }"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the filtered rows as json object",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "JSON",
+                  "example": "{\"thead\":cols,\"tbodys\":rows}"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/nlu": {
+      "post": {
+        "tags": [
+          "Natural language query"
+        ],
+        "description": "Returns answer for the given query using natrual language understanding",
+        "requestBody":{
+        
+          "description": "Accepts the query, files as input",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "JSON",
+                  "example": "{'query': 'Count of the patients who died with covid-19 till April 2021', 'files': }"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Answer for the given query",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "300"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/start_download": {
+      "get": {
+        "tags": [
+          "Generate Download Link"
+        ],
+        "description": "Generates the downloadable csv file link",
+        "requestBody":{
+        
+          "description": "downloadable link to the output.csv file",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "string",
+                  "example": "output csv file link"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Download link of the output csv file",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "example": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/setdownload": {
+      "post": {
+        "tags": [
+          "Set download"
+        ],
+        "description": "set the donwload path for the output csv file",
+        "requestBody":{
+        
+          "description": "donwload link to the csv file",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "string",
+                  "example": "output csv file link"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Download link of the output csv file",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "example": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/download": {
+      "post": {
+        "tags": [
+          "Download file"
+        ],
+        "description": "download the csv file to the local system",
+        "requestBody":{
+        
+          "description": "donwload the output csv file to local system",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "file",
+                  "example": "dfname: file_object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "csv file",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "file",
+                  "example": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/add_domain": {
+      "post": {
+        "tags": [
+          "Add domain name"
+        ],
+        "description": "Adds the domain name to the database",
+        "requestBody":{
+        
+          "description": "Enter the name of the domain",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "string",
+                  "example": "domain: domain_name"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the status of the add domain",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "Status of the add domain"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/setupload": {
+      "post": {
+        "tags": [
+          "Set Upload Table"
+        ],
+        "description": "Setup the upload table option to newly created domain",
+        "requestBody":{
+        
+          "description": "Enter the new name for the table",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "string",
+                  "example": "nickname: new_file_name"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the status of the setup table",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "Status of the setup table"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/upload": {
+      "post": {
+        "tags": [
+          "Upload Table"
+        ],
+        "description": "Uploads the table to newly created domain",
+        "requestBody":{
+        
+          "description": "",
+          "required": true,
+          "content":{
+           "application/json": {
+            "schema": {
+              "type": "string",
+                  "example": "file: new_file_path"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the status of the add table",
+            "content": {
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "Status of the add table"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    
+  }
+
+
+}

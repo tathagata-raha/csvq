@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+
+#############################
+#   Setup Flask container
+#############################
+  server:
+    container_name: enduser_backend
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes: 
+      - ./server:/srv/app/enduser_backend
+
+  #############################
+  #   Setup React container
+  #############################
+
+  client:
+    container_name: enduser_frontend
+    build:
+      context: ./now-ui-dashboard-react-main
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes: 
+      - ./now-ui-dashboard-react-main/Documentation:/srv/app/enduser_frontend/Documentation
+      - ./now-ui-dashboard-react-main/src:/srv/app/enduser_frontend/src
+      - ./now-ui-dashboard-react-main/public:/srv/app/enduser_frontend/public
+    links:
+      - server

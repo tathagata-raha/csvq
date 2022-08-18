@@ -1,0 +1,25 @@
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match
+select * from ipl_match where player_of_match like 'bb mccullum'
+select * from ipl_match where player_of_match like 'bb mccullum'

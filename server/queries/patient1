@@ -1,0 +1,11 @@
+select * from patient1
+select * from patient1
+select * from patient1 where country = "india"
+select * from patient1 where site_id="gandhi hospital"
+select * from patient1 where site_id="gandhi hospital"
+select * from patient1
+select * from patient1 where site_id="gandhi hospital"
+select * from patient1 where site_id="gandhi hospital"
+select * from patient1
+select * from patient1
+select * from patient1
